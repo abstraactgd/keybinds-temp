@@ -244,7 +244,7 @@ function initKeybindNode(node, keybind, tag) {
 
 	const kremove = node.querySelector(".k-remove");
 	kremove.addEventListener("click", () => {
-		keybinds = keybinds.filter(k => k !== node);
+		keybinds = keybinds.filter(k => k !== keybind);
 		kremove.parentNode.remove();
 		/*
 			What the fuck bro? node is a document fragment with undefined content,
