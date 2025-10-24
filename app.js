@@ -244,7 +244,7 @@ function initKeybindNode(node, keybind, tag) {
 
 	const kremove = node.querySelector(".k-remove");
 	kremove.addEventListener("click", () => {
-		keybinds = keybinds.filter(k => k.tag != tag);
+		keybinds = keybinds.filter(k => k !== node);
 		kremove.parentNode.remove();
 		/*
 			What the fuck bro? node is a document fragment with undefined content,
@@ -257,21 +257,19 @@ function initKeybindNode(node, keybind, tag) {
 
 function add() {
 	const tag = tagselect.value;
-	if (keybinds.find(k => k.tag === tag) == null) {
-		const keybind = {
-			key: 1,
-			modifiers: 0,
-			type: 1,
-			value: "1",
-			tag,
-			active: true
-		};
-		keybinds.push(keybind);
+	const keybind = {
+		key: 1,
+		modifiers: 0,
+		type: 1,
+		value: "1",
+		tag,
+		active: true
+	};
+	keybinds.push(keybind);
 
-		const clone = keybindtemplate.content.cloneNode(true);
-		initKeybindNode(clone, keybind, tag);
-		keybindsdiv.appendChild(clone);
-	}
+	const clone = keybindtemplate.content.cloneNode(true);
+	initKeybindNode(clone, keybind, tag);
+	keybindsdiv.appendChild(clone);
 }
 
 function exp() {
