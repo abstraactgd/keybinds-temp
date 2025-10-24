@@ -262,7 +262,7 @@ function add() {
 			key: 1,
 			modifiers: 0,
 			type: 1,
-			value: 1,
+			value: "1",
 			tag,
 			active: true
 		};
