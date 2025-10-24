@@ -1,10 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="app.js"></script>
 	<title>keybinds helper</title>
 </head>
 <body>
+	<details>
+		<summary>Tag Types</summary>
+		<p>
+			[B] - Boolean, ON/OFF <br>
+			[D] - Double, Number with decimals <br>
+			[S] - string, Text value <br>
+			[I] - uint32_t, Non-negative integer <br>
+		</p>
+	</details>
+	<hr>
 
+	<button onclick="exp()">Export Keybinds</button>
+	<p id="savemessage"></p>
+	<h1>Keybind Editor</h1>
+	<label for="tagselect">Selected Tag</label>
+	<select id="tagselect">
+		<option disabled>----- UI</option>
+		<option value="ui.visible" selected>[B] UI : Visible</option>
+		<option value="ui.glass_ui">[B] UI : Glass Shader</option>
+		<option value="ui.rainbow">[B] UI : Rainbow [UNUSED]</option>
+		<option value="ui.play_animations">[B] UI : Play Animations</option>
+		<option value="ui.animation_speed">[D] UI : Animation Speed</option>
+		<option value="ui.opacity">[D] UI : Opacity</option>
+
+		<option disabled>----- REPLAY</option>
+		<option value="replay.ignore_inputs">[B] Replay : Ignore Inputs</option>
+
+		<option disabled>----- TRAJECTORY</option>
+		<option value="trajectory.enabled">[B] Trajectory : Enabled</option>
+		<option value="trajectory.width">[D] Trajectory : Width</option>
+		<option value="trajectory.length">[D] Trajectory : Length</option>
+
+		<option disabled>----- RENDERER</option>
+		<option value="renderer.auto_video_name">[S] Renderer : Auto Video Name</option>
+		<option value="renderer.video_name_template">[S] Renderer : Video Name Template</option>
+		<option value="renderer.audio_preview">[B] Renderer : Audio Preview [UNUSED]</option>
+
+		<option disabled>----- UPDATER</option>
+		<option value="updater.advance_one">[B] Updater : Advance One</option>
+		<option value="updater.advance_back">[B] Updater : Advance Back</option>
+		<option value="updater.tps">[D] Updater : TPS</option>
+		<option value="updater.speedhack">[D] Updater : Speedhack</option>
+		<option value="updater.frame_advance">[B] Updater : Frame Advance</option>
+		<option value="updater.real_time">[B] Updater : Real Time</option>
+		<option value="updater.max_upr">[I] Updater : max-upr</option>
+		<option value="updater.visual_updates">[B] Updater : Visual Updates</option>
+		<option value="updater.lock_delta">[B] Updater : Lock Delta</option>
+		<option value="updater.lock_delta_mode">[0/1] Updater : Lock Delta Mode</option>
+		<option value="updater.speedhack_audio">[B] Updater : Speedhack Audio</option>
+		<option value="updater.intentional_death">[B] Updater : Intentional Death</option>
+		<option value="updater.ssb_fix">[B] Updater : SSB Fix</option>
+		<option value="updater.backwards_stepping">[B] Updater : Backwards Stepping</option>
+		<option value="updater.no_mirror">[B] Updater : No Mirror</option>
+
+		<option disabled>----- HITBOXES</option>
+		<option value="hitboxes.enabled">[B] Hitboxes : Enabled</option>
+		<option value="hitboxes.width">[D] Hitboxes : Width</option>
+
+		<option disabled>----- AUTOCLICKER</option>
+		<option value="autoclicker.enabled">[B] Auto-Clicker : Enabled</option>
+
+		<option disabled>----- PRACTICE FIX</option>
+		<option value="practice_fix.max_stored_frames">[I] Practice Fix : Max Stored Frames</option>
+	</select>
+	<br>
+	<button onclick="add()">Add</button>
+	<hr>
+
+	<template id="keybindtemplate">
+		<details>
+			<summary class="k-name">undefined</summary>
+			Keybind <select class="k-bind"></select>
+			<br>
+			Activation Type <select class="k-type">
+				<option value="0">Hold</option>
+				<option value="1" selected>Toggle</option>
+				<option value="2">Override</option>
+			</select>
+			<br>
+			Modifier Key <input class="k-modifier" type="checkbox">
+			<br>
+			Value (usually 1 for toggleable) <input class="k-value" type="text" value="1">
+			<br>
+			<button class="k-remove">Remove Keybind</button>
+		</details>
+	</template>
+
+	<h2>Keybinds</h2>
+	<div id="keybindsdiv">
+	</div>
+
+	<script src="app.js"></script>
 </body>
 </html>
