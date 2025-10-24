@@ -1,6 +1,8 @@
 const vkeys = [
 	["VK_LBUTTON", 0x01, "Left mouse button"],
 	["VK_RBUTTON", 0x02, "Right mouse button"],
+	["scrollwheel_up", 151, "Scroll wheel up"], // unassigned officialy, this is specific for silicate
+	["scrollwheel_down", 152, "Scroll wheel down"], // unassigned officialy
 	["VK_CANCEL", 0x03, "Control-break processing"],
 	["VK_MBUTTON", 0x04, "Middle mouse button"],
 	["VK_XBUTTON1", 0x05, "X1 mouse button"],
