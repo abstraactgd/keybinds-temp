@@ -34,52 +34,66 @@
 	<h1>Keybind Editor</h1>
 	<label for="tagselect">Selected Tag</label>
 	<select id="tagselect">
-		<option disabled>----- UI</option>
-		<option value="ui.visible" selected>[B] UI : Visible</option>
-		<option value="ui.glass_ui">[B] UI : Glass Shader</option>
-		<option value="ui.rainbow">[B] UI : Rainbow [UNUSED]</option>
-		<option value="ui.play_animations">[B] UI : Play Animations</option>
-		<option value="ui.animation_speed">[D] UI : Animation Speed</option>
-		<option value="ui.opacity">[D] UI : Opacity</option>
-
 		<option disabled>----- REPLAY</option>
 		<option value="replay.ignore_inputs">[B] Replay : Ignore Inputs</option>
-
+		<option value="replay.autosave">[B] Replay : Auto Save</option>
+		<option value="replay.althook">[B] Replay : Alternate Input Hook</option>
+		<option value="replay.autosave_at_interval">[B] Replay : Auto Backup</option>
+		<option value="replay.autosave_interval">[I] Replay : Auto Backup Interval</option>
+	
 		<option disabled>----- TRAJECTORY</option>
 		<option value="trajectory.enabled">[B] Trajectory : Enabled</option>
 		<option value="trajectory.width">[D] Trajectory : Width</option>
 		<option value="trajectory.length">[D] Trajectory : Length</option>
-
+		
 		<option disabled>----- RENDERER</option>
 		<option value="renderer.auto_video_name">[S] Renderer : Auto Video Name</option>
 		<option value="renderer.video_name_template">[S] Renderer : Video Name Template</option>
-		<option value="renderer.audio_preview">[B] Renderer : Audio Preview [UNUSED]</option>
+		<option value="renderer.audio_preview">[B] Renderer : Audio Preview</option>
+		<option value="updater.ssb_fix">[B] Updater : SSB Fix (Experimental)</option>
+
+		<option disabled>----- UI</option>
+		<option value="ui.visible" selected>[B] UI : Visible</option>
+		<option value="ui.glass_ui">[B] UI : Glass Shader</option>
+		<option value="ui.play_animations">[B] UI : Play Animations</option>
+		<option value="ui.animation_speed">[D] UI : Animation Speed</option>
+		<option value="ui.opacity">[D] UI : Opacity</option>
 
 		<option disabled>----- UPDATER</option>
+		<option value="updater.speedhack">[D] Updater : Speedhack</option>
 		<option value="updater.advance_one">[B] Updater : Advance One</option>
 		<option value="updater.advance_back">[B] Updater : Advance Back</option>
 		<option value="updater.tps">[D] Updater : TPS</option>
-		<option value="updater.speedhack">[D] Updater : Speedhack</option>
 		<option value="updater.frame_advance">[B] Updater : Frame Advance</option>
+		<option value="updater.speedhack_audio">[B] Updater : Speedhack Audio</option>
+		<option value="updater.intentional_death">[B] Updater : Intentional Death</option>
+		<option value="updater.frame_extrapolation">[B] Updater : Frame Extrapolation</option>
+		<option value="updater.no_mirror">[B] Updater : No Mirror</option>
+		
+		<option disabled>----- LOCK DELTA</option>
+		<option value="updater.lock_delta">[B] Updater : Lock Delta</option>
+		<option value="updater.lock_delta_mode">[0/1] Updater : Lock Delta Mode</option>
 		<option value="updater.real_time">[B] Updater : Real Time</option>
 		<option value="updater.max_upr">[I] Updater : max-upr</option>
 		<option value="updater.visual_updates">[B] Updater : Visual Updates</option>
-		<option value="updater.lock_delta">[B] Updater : Lock Delta</option>
-		<option value="updater.lock_delta_mode">[0/1] Updater : Lock Delta Mode</option>
-		<option value="updater.speedhack_audio">[B] Updater : Speedhack Audio</option>
-		<option value="updater.intentional_death">[B] Updater : Intentional Death</option>
-		<option value="updater.ssb_fix">[B] Updater : SSB Fix</option>
-		<option value="updater.backwards_stepping">[B] Updater : Backwards Stepping</option>
-		<option value="updater.no_mirror">[B] Updater : No Mirror</option>
+		
+		<option disabled>----- PREDICTION</option>
+		<option value="updater.auto_flip_on_death">[B] Updater : Auto Flip On Death</option
+		<option value="updater.prevent_death">[B] Updater : Prevent Death</option>
+		<option value="updater.full_game_prediction">[B] Updater : Use Trajectory</option>
+		<option value="updater.predict_best_path">[only 1] Updater : Find Best Frame</option>
+		<option value="updater.full_game_prediction">[D] Updater : Simulation Threshold</option>
 
 		<option disabled>----- HITBOXES</option>
 		<option value="hitboxes.enabled">[B] Hitboxes : Enabled</option>
+		<option value="hitboxes.trail_enabled">[B] Hitboxes : Trail Enabled</option>
 		<option value="hitboxes.width">[D] Hitboxes : Width</option>
 
 		<option disabled>----- AUTOCLICKER</option>
 		<option value="autoclicker.enabled">[B] Auto-Clicker : Enabled</option>
 
-		<option disabled>----- PRACTICE FIX</option>
+		<option disabled>----- PRACTICE</option>
+		<option value="updater.backwards_stepping">[B] Updater : Backwards Stepping</option>
 		<option value="practice_fix.max_stored_frames">[I] Practice Fix : Max Stored Frames</option>
 	</select>
 	<br>
@@ -99,7 +113,7 @@
 			<br>
 			Modifier Key <input class="k-modifier" type="checkbox">
 			<br>
-			Value (usually 1 for toggleable) <input class="k-value" type="text" value="1">
+			Value (1 for button, 0/1 for toggle state) <input class="k-value" type="text" value="1">
 			<br>
 			<button class="k-remove">Remove Keybind</button>
 		</details>
